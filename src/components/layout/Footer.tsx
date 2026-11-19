@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Confirmed Services */}
+          {/* Core Services Links */}
           <div className="space-y-3">
             <div className="font-mono text-xs text-[#A3E635] uppercase tracking-wider font-semibold">
               // Core Services
@@ -51,63 +51,53 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-xs font-mono text-[#A1A1AA]">
               {confirmedServices.map((service) => (
                 <li key={service.id}>
-                  <a
-                    href={`#service-${service.id}`}
+                  <Link
+                    href={`/services#service-${service.id}`}
                     className="hover:text-[#A3E635] transition-colors flex items-center gap-1.5"
                   >
                     <span className="text-[10px] text-white/30">{service.number}</span>
                     <span>{service.title}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Quick Navigation */}
+          {/* Header Pages Navigation */}
           <div className="space-y-3">
             <div className="font-mono text-xs text-[#A3E635] uppercase tracking-wider font-semibold">
               // Navigation
             </div>
-            <ul className="space-y-2 text-xs font-mono text-[#A1A1AA]">
+            <ul className="space-y-2.5 text-xs font-mono text-[#A1A1AA]">
               <li>
-                <a href="#hero" className="hover:text-white transition-colors">
-                  01 // Overview
-                </a>
+                <Link href="/" className="hover:text-white transition-colors">
+                  01 // Home
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  02 // Engineering Capabilities
-                </a>
+                <Link href="/services" className="hover:text-white transition-colors">
+                  02 // Services
+                </Link>
               </li>
               <li>
-                <a href="#projects" className="hover:text-white transition-colors">
-                  03 // Project Portfolio
-                </a>
+                <Link href="/projects" className="hover:text-white transition-colors">
+                  03 // Projects
+                </Link>
               </li>
               <li>
-                <a href="#showcase" className="hover:text-white transition-colors">
+                <Link href="/showcase" className="hover:text-white transition-colors">
                   04 // Technical Showcase
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  05 // About AP Labs
-                </a>
+                <Link href="/about" className="hover:text-white transition-colors">
+                  05 // About &amp; Process
+                </Link>
               </li>
               <li>
-                <a href="#process" className="hover:text-white transition-colors">
-                  06 // Engineering Process
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-white transition-colors">
-                  07 // Engineering FAQ
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-white transition-colors">
-                  08 // Project Enquiry
-                </a>
+                <Link href="/contact" className="hover:text-white transition-colors">
+                  06 // Project Enquiry
+                </Link>
               </li>
             </ul>
           </div>
