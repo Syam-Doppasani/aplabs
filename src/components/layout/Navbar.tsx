@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { EnquiryAction } from "@/components/ui/EnquiryAction";
+import { Logo } from "@/components/ui/Logo";
 import { Menu, X, Cpu } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -61,26 +62,8 @@ export const Navbar: React.FC = () => {
               : "bg-transparent border border-transparent"
           )}
         >
-          {/* Logo Mark */}
-          <Link
-            href="#hero"
-            className="flex items-center gap-2.5 group cursor-pointer"
-            aria-label="AP Labs Homepage"
-          >
-            <div className="w-8 h-8 rounded-[2px] bg-[#171A17] border border-[#A3E635]/40 flex items-center justify-center transition-colors group-hover:border-[#A3E635] shadow-[0_0_12px_rgba(163,230,53,0.15)]">
-              <span className="font-heading font-black text-xs text-[#A3E635] tracking-tighter">
-                AP
-              </span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-heading font-bold text-base tracking-wider text-[#F5F5F5] group-hover:text-white transition-colors">
-                {siteConfig.name}
-              </span>
-              <span className="font-mono text-[8px] text-[#A1A1AA] tracking-widest uppercase -mt-1">
-                ENGINEERING STUDIO
-              </span>
-            </div>
-          </Link>
+          {/* Official AP Labs Logo */}
+          <Logo size="sm" />
 
           {/* Desktop Navigation */}
           <nav

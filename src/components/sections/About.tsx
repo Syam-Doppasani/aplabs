@@ -3,11 +3,11 @@ import { siteConfig, isConfigPlaceholder } from "@/config/site";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TechnicalLabel } from "@/components/ui/TechnicalLabel";
 import { EnquiryAction } from "@/components/ui/EnquiryAction";
-import { CheckCircle2, Cpu, FileCheck, Layers, Target, Users } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Target, Layers } from "lucide-react";
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="relative py-24 bg-[#050505] overflow-hidden">
+    <section id="about" className="relative py-20 bg-[#050505] overflow-hidden">
       {/* Background CAD Grid */}
       <div className="absolute inset-0 bg-cad-grid opacity-20 pointer-events-none" />
 
@@ -16,133 +16,74 @@ export const About: React.FC = () => {
           label="05 // STUDIO ETHOS"
           tagline="ABOUT AP LABS"
           title="ENGINEERING THINKING. DESIGN-LED EXECUTION."
-          description="AP Labs is an independent mechanical engineering design and product development studio. We transform functional concepts into precise, manufacturable digital designs."
+          description="Independent mechanical engineering studio translating physical product concepts into production-ready digital designs."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Main Narrative (7 cols) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Main Statement (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="p-6 sm:p-8 bg-[#0B0D0B] border border-white/10 space-y-4">
-              <span className="font-mono text-xs text-[#A3E635] uppercase tracking-wider block font-semibold">
-                // What We Do
+            <div className="p-6 sm:p-8 bg-[#0B0D0B] border border-white/10 space-y-4 crosshair-corner">
+              <span className="font-mono text-xs text-[#A3E635] uppercase tracking-wider block font-bold">
+                // Studio Philosophy
               </span>
-              <p className="text-base text-[#F5F5F5] leading-relaxed font-sans font-light">
-                AP Labs specializes in the intersection of rigorous mechanical
-                analysis and refined physical product design. We focus on
-                mechanical component design, injection mould architectures, 3D
-                CAD modelling, sheet metal engineering, assembly kinematics,
-                mould flow analysis, and structural optimization.
-              </p>
+              <h3 className="font-heading text-xl sm:text-2xl font-bold uppercase text-[#F5F5F5] leading-snug">
+                Every component has a purpose. <br />
+                <span className="text-[#A3E635]">Every tolerance matters.</span>
+              </h3>
               <p className="text-sm text-[#A1A1AA] leading-relaxed font-sans font-light">
-                Every mechanical component possesses a definitive purpose. Our
-                engineering philosophy treats dimensional tolerances, draft
-                angles, parting surfaces, and fastener stack-ups as fundamental
-                design elements rather than afterthoughts.
+                AP Labs specializes in mechanical part design, injection mould
+                tooling, 3D CAD modelling, and structural optimization. We
+                bridge industrial design aesthetics with rigorous GD&amp;T
+                engineering discipline.
               </p>
-            </div>
 
-            {/* Target Clients / Who We Work With */}
-            <div className="p-6 sm:p-8 bg-[#0B0D0B] border border-white/10 space-y-4">
-              <span className="font-mono text-xs text-[#A3E635] uppercase tracking-wider block font-semibold">
-                // Who We Work With
-              </span>
-              <p className="text-sm text-[#A1A1AA] leading-relaxed font-sans font-light">
-                We partner with organizations across every phase of physical
-                product development:
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                {siteConfig.targetAudience.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="p-3 bg-white/[0.02] border border-white/5 flex items-start gap-2.5"
-                  >
-                    <CheckCircle2 className="w-4 h-4 text-[#A3E635] shrink-0 mt-0.5" />
-                    <span className="font-mono text-xs text-[#F5F5F5] leading-snug">
-                      {item}
+              {/* Target Client Badges */}
+              <div className="pt-2">
+                <span className="font-mono text-[10px] text-white/40 uppercase block mb-2">
+                  Serving:
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {siteConfig.targetAudience.map((audience, i) => (
+                    <span
+                      key={i}
+                      className="px-2.5 py-1 bg-white/[0.03] border border-white/10 font-mono text-[10px] text-[#F5F5F5]"
+                    >
+                      {audience}
                     </span>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Studio Configurable Parameters & Core Pillars (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            {/* Engineering Pillars */}
-            <div className="p-6 bg-[#0B0D0B] border border-white/10 space-y-4">
-              <span className="font-mono text-xs text-[#A3E635] uppercase tracking-wider block font-semibold">
-                // Engineering Pillars
+          {/* 3 Pillars & Verification (5 cols) */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="p-6 bg-[#0B0D0B] border border-white/10 space-y-3 font-mono text-xs">
+              <span className="text-[#A3E635] uppercase font-bold tracking-wider block">
+                // Core Principles
               </span>
-
-              <div className="space-y-3 font-mono text-xs">
-                <div className="p-3.5 bg-[#111411] border-l-2 border-[#A3E635]">
-                  <span className="text-[#F5F5F5] font-bold block uppercase mb-1">
-                    01. Geometric Discipline
-                  </span>
-                  <span className="text-[#A1A1AA] leading-relaxed block">
-                    Zero-compromise approach to GD&amp;T, draft angles, and
-                    clearance allowances according to international manufacturing
-                    standards.
+              <div className="space-y-2.5">
+                <div className="p-3 bg-[#111411] border-l-2 border-[#A3E635]">
+                  <span className="text-white font-bold block">01. Geometric Precision</span>
+                  <span className="text-[#A1A1AA] text-[11px] block mt-0.5">
+                    Strict adherence to ASME Y14.5 and ISO 1101 standards.
                   </span>
                 </div>
-
-                <div className="p-3.5 bg-[#111411] border-l-2 border-[#A3E635]">
-                  <span className="text-[#F5F5F5] font-bold block uppercase mb-1">
-                    02. Tooling-First Thinking
-                  </span>
-                  <span className="text-[#A1A1AA] leading-relaxed block">
-                    Whether designing for injection moulding, CNC milling, or
-                    press-brake forming, all CAD assets anticipate physical
-                    tooling constraints.
+                <div className="p-3 bg-[#111411] border-l-2 border-[#A3E635]">
+                  <span className="text-white font-bold block">02. Tooling-First CAD</span>
+                  <span className="text-[#A1A1AA] text-[11px] block mt-0.5">
+                    Anticipating parting lines, draft angles, and CNC tool paths.
                   </span>
                 </div>
-
-                <div className="p-3.5 bg-[#111411] border-l-2 border-[#A3E635]">
-                  <span className="text-[#F5F5F5] font-bold block uppercase mb-1">
-                    03. Parametric Integrity
-                  </span>
-                  <span className="text-[#A1A1AA] leading-relaxed block">
-                    Robust, fully-constrained parametric solid models engineered
-                    to facilitate rapid downstream revision without model failure.
+                <div className="p-3 bg-[#111411] border-l-2 border-[#A3E635]">
+                  <span className="text-white font-bold block">03. Parametric Integrity</span>
+                  <span className="text-[#A1A1AA] text-[11px] block mt-0.5">
+                    Fully constrained solids ready for CAM toolpaths &amp; CMM.
                   </span>
                 </div>
               </div>
-            </div>
 
-            {/* Configurable Business Information Card */}
-            <div className="p-6 bg-[#111411] border border-white/10 space-y-3 font-mono text-xs text-[#A1A1AA]">
-              <span className="text-[#A3E635] uppercase tracking-wider block font-semibold">
-                // Studio Verification Log
-              </span>
-
-              <div className="divide-y divide-white/5 text-[11px]">
-                <div className="py-2 flex justify-between">
-                  <span className="text-white/40">STUDIO NAME:</span>
-                  <span className="text-[#F5F5F5] font-semibold">{siteConfig.name}</span>
-                </div>
-                <div className="py-2 flex justify-between">
-                  <span className="text-white/40">LOCATION:</span>
-                  <span className="text-[#F5F5F5]">{siteConfig.location}</span>
-                </div>
-                <div className="py-2 flex justify-between">
-                  <span className="text-white/40">DIRECT ENQUIRY:</span>
-                  <span className="text-[#A3E635]">EXTERNAL GOOGLE FORM</span>
-                </div>
-                <div className="py-2 flex justify-between">
-                  <span className="text-white/40">CAD ENVIRONMENT:</span>
-                  <span>
-                    {!isConfigPlaceholder(siteConfig.cadSoftware[0])
-                      ? siteConfig.cadSoftware.join(", ")
-                      : siteConfig.cadSoftware[0]}
-                  </span>
-                </div>
-                <div className="py-2 flex justify-between">
-                  <span className="text-white/40">FOUNDER / LEAD:</span>
-                  <span>{siteConfig.founderInfo}</span>
-                </div>
-              </div>
-
-              <div className="pt-2">
+              <div className="pt-3 border-t border-white/10">
                 <EnquiryAction
                   variant="primary"
                   size="md"

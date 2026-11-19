@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { siteConfig, isConfigPlaceholder, displayOrPlaceholder } from "@/config/site";
 import { confirmedServices } from "@/config/services";
+import { Logo } from "@/components/ui/Logo";
 import { ArrowUpRight, Mail, Phone, MapPin, ShieldCheck, Terminal } from "lucide-react";
 import { TechnicalLabel } from "@/components/ui/TechnicalLabel";
 
@@ -23,19 +24,10 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-[2px] bg-[#171A17] border border-[#A3E635]/40 flex items-center justify-center">
-                <span className="font-heading font-black text-xs text-[#A3E635]">
-                  AP
-                </span>
-              </div>
-              <span className="font-heading font-bold text-lg tracking-wider text-[#F5F5F5]">
-                {siteConfig.name}
-              </span>
-            </div>
+            <Logo size="md" />
 
-            <p className="text-sm text-[#A1A1AA] leading-relaxed max-w-md font-sans">
-              {siteConfig.businessDescription}
+            <p className="text-xs text-[#A1A1AA] leading-relaxed max-w-sm font-sans font-light">
+              Precision mechanical engineering and product design studio. Specialized in CAD modelling, injection mould tooling, and component optimization.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-2">

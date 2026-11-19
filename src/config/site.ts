@@ -19,6 +19,7 @@ export interface SiteConfig {
   name: string;
   industry: string;
   logoText: string;
+  logoUrl?: string;
   tagline: string;
   businessDescription: string;
   targetAudience: string[];
@@ -43,6 +44,7 @@ export const siteConfig: SiteConfig = {
   name: "AP Labs",
   industry: "Mechanical Engineering Design & Product Design",
   logoText: "AP LABS",
+  logoUrl: "/images/ap-labs-logo.jpeg",
   tagline: "ENGINEERING IDEAS. DESIGNED WITH PRECISION.",
   businessDescription:
     "AP Labs is a mechanical engineering and product design studio providing specialized design services for businesses, manufacturers, entrepreneurs, and individual product developers. The agency focuses on mechanical components, mould design, CAD modelling, sheet metal design, product design, assembly design, mould flow analysis, and design optimization.",
