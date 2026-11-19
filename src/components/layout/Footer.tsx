@@ -2,26 +2,70 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { siteConfig, isConfigPlaceholder, displayOrPlaceholder } from "@/config/site";
+import { siteConfig, isConfigPlaceholder } from "@/config/site";
 import { confirmedServices } from "@/config/services";
 import { Logo } from "@/components/ui/Logo";
-import { ArrowUpRight, Mail, Phone, MapPin, ShieldCheck, Terminal } from "lucide-react";
+import { GargantuaSingularityCard } from "@/components/ui/GargantuaSingularityCard";
+import { EnquiryAction } from "@/components/ui/EnquiryAction";
+import { ArrowUpRight, Mail, Phone, MapPin, ShieldCheck } from "lucide-react";
 import { TechnicalLabel } from "@/components/ui/TechnicalLabel";
 
 export const Footer: React.FC = () => {
   const [currentYear, setCurrentYear] = useState(2026);
+  const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
   }, []);
 
+  const handleCtaClick = () => {
+    if (!isConfigPlaceholder(siteConfig.googleFormUrl)) {
+      window.open(siteConfig.googleFormUrl, "_blank", "noopener,noreferrer");
+    } else {
+      // Trigger modal fallback
+      setEnquiryModalOpen(true);
+    }
+  };
+
   return (
-    <footer className="relative bg-[#050505] border-t border-white/10 pt-16 pb-12 overflow-hidden">
+    <footer className="relative bg-[#050505] border-t border-white/10 pt-20 sm:pt-28 pb-12 overflow-hidden">
       {/* Subtle CAD Grid background */}
       <div className="absolute inset-0 bg-cad-grid opacity-30 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
+        {/* ── 01. Gargantua Singularity Interactive 3D Card ── */}
+        <div className="mb-20 sm:mb-28">
+          <div className="flex items-center justify-between mb-4 px-1">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#A3E635] animate-pulse" />
+              <span className="font-mono text-xs uppercase tracking-widest text-[#A3E635] font-semibold">
+                // RELATIVISTIC CAD HORIZON
+              </span>
+            </div>
+            <span className="hidden sm:inline font-mono text-[10px] text-[#A1A1AA]/60 uppercase">
+              WebGL2 Procedural Shader • 3D Gyroscopic Tilt
+            </span>
+          </div>
+
+          <GargantuaSingularityCard
+            badge="AP LABS ENGINEERING"
+            title="ENGINEERING BEYOND LIMITS"
+            subtitle="Precision mechanical component design, advanced 3D CAD modelling, and injection mould tooling engineered for real-world manufacturing."
+            cta="Start a Project Enquiry"
+            onCtaClick={handleCtaClick}
+            colorA="#A3E635"
+            colorB="#84CC16"
+            colorC="#050505"
+            speed={1.0}
+            interactive={true}
+            tilt={true}
+            logoSrc="/images/ap-labs-logo.jpeg"
+            className="w-full border border-white/10 shadow-[0_30px_90px_rgba(0,0,0,0.9)]"
+          />
+        </div>
+
+        {/* ── 02. Navigation & Studio Details Grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-20 pt-8 border-t border-white/10">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Logo size="md" />
@@ -170,7 +214,14 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Technical Footer Bottom Bar */}
+        {/* ── 03. AP LABS Monumental Bold Footer Typography ── */}
+        <div className="pt-8 pb-10 border-t border-white/10 overflow-hidden select-none">
+          <h1 className="font-heading font-black text-6xl sm:text-8xl md:text-9xl lg:text-[13vw] xl:text-[14vw] tracking-tighter uppercase text-center leading-none text-transparent bg-clip-text bg-gradient-to-b from-[#F5F5F5] via-[#F5F5F5]/40 to-white/5 opacity-90 hover:opacity-100 transition-opacity duration-500 will-change-transform">
+            AP LABS
+          </h1>
+        </div>
+
+        {/* ── 04. Technical Footer Bottom Bar ── */}
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#A1A1AA]/70">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#A3E635]" />
