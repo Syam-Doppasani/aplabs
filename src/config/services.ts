@@ -1,17 +1,14 @@
 /**
  * AP LABS — Confirmed Services Specification
  *
- * EXACT 8 APPROVED SERVICES:
+ * APPROVED SERVICES:
  * 1. Mechanical Part Design
- * 2. Injection Mould Design
- * 3. 3D CAD Modelling
- * 4. Sheet Metal Design
- * 5. Product Design
- * 6. Assembly Design
- * 7. Mould Flow Analysis
- * 8. Design Optimization
- *
- * STRICT RULE: Do not add additional services without authorization.
+ * 2. 3D CAD Modelling
+ * 3. Sheet Metal Design
+ * 4. Product Design
+ * 5. Assembly Design
+ * 6. 3D Printer Designs
+ * 7. Design Optimization
  */
 
 export interface ServiceItem {
@@ -23,7 +20,7 @@ export interface ServiceItem {
   keyDeliverables: string[];
   visualDirection: string;
   technicalBadge: string;
-  modelType: "part" | "mould" | "cad" | "sheetmetal" | "product" | "assembly" | "flow" | "optimization";
+  modelType: "part" | "cad" | "sheetmetal" | "product" | "assembly" | "3dprinter" | "optimization";
   enquiryPrompt: string;
 }
 
@@ -47,30 +44,12 @@ export const confirmedServices: ServiceItem[] = [
     enquiryPrompt: "Enquire about Mechanical Part Design",
   },
   {
-    id: "injection-mould-design",
-    number: "02",
-    title: "Injection Mould Design",
-    tagline: "Core, cavity, and precision tooling architectures for polymer manufacturing.",
-    description:
-      "Comprehensive injection mould tooling design encompassing cavity and core splitting, parting line resolution, runner and gating systems, conformal cooling channel layouts, and mechanical ejection systems.",
-    keyDeliverables: [
-      "Core and cavity block separation",
-      "Parting line & shut-off surface engineering",
-      "Ejector pin & slide mechanism design",
-      "Tooling thermal management & cooling circuit layout",
-    ],
-    visualDirection: "Exploded mould assembly showing core, cavity, lifters, and cooling channels.",
-    technicalBadge: "Tooling & Die Geometry",
-    modelType: "mould",
-    enquiryPrompt: "Enquire about Injection Mould Design",
-  },
-  {
     id: "cad-modelling",
-    number: "03",
+    number: "02",
     title: "3D CAD Modelling",
     tagline: "Parametric solid and surface modelling for digital engineering.",
     description:
-      "High-precision digital representation of components and systems utilizing robust parametric solids and Class-A surfacing techniques. Ready for downstream engineering, CAM toolpaths, and CMM inspection.",
+      "High-precision digital representation of components and systems utilizing robust parametric solids and Class-A surfacing techniques in Creo Parametric, SolidWorks, and CATIA. Ready for downstream engineering and CAM toolpaths.",
     keyDeliverables: [
       "Feature-based parametric solid modelling",
       "Curvature-continuous surface generation",
@@ -84,7 +63,7 @@ export const confirmedServices: ServiceItem[] = [
   },
   {
     id: "sheet-metal-design",
-    number: "04",
+    number: "03",
     title: "Sheet Metal Design",
     tagline: "Precision enclosures, chassis, and folded structural components.",
     description:
@@ -102,7 +81,7 @@ export const confirmedServices: ServiceItem[] = [
   },
   {
     id: "product-design",
-    number: "05",
+    number: "04",
     title: "Product Design",
     tagline: "Holistic form, functional architecture, and human-machine interaction.",
     description:
@@ -120,7 +99,7 @@ export const confirmedServices: ServiceItem[] = [
   },
   {
     id: "assembly-design",
-    number: "06",
+    number: "05",
     title: "Assembly Design",
     tagline: "Kinematic alignment, multi-body constraints, and tolerance stack-ups.",
     description:
@@ -137,33 +116,33 @@ export const confirmedServices: ServiceItem[] = [
     enquiryPrompt: "Enquire about Assembly Design",
   },
   {
-    id: "mould-flow-analysis",
-    number: "07",
-    title: "Mould Flow Analysis",
-    tagline: "Visualizing fill dynamics, gate freeze, weld lines, and thermal behavior.",
+    id: "3d-printer-designs",
+    number: "06",
+    title: "3D Printer Designs",
+    tagline: "Additive manufacturing engineering, slicer optimization, and rapid functional prototyping.",
     description:
-      "Engineering visualization of polymer injection dynamics to optimize gate placement, prevent air traps, reduce weld line vulnerabilities, and achieve balanced fill patterns across multi-cavity moulds.",
+      "Specialized CAD design engineered specifically for additive manufacturing (FDM, SLA, SLS, and DMLS). Focuses on overhang minimization, self-supporting geometry, print-in-place moving hinges, anisotropic layer tensile compensation, and thread tolerances.",
     keyDeliverables: [
-      "Cavity fill time & melt front progression visualization",
-      "Injection pressure & clamp force estimations",
-      "Weld line & air trap identification",
-      "Volumetric shrinkage and warpage assessment",
+      "FDM / SLA / SLS print-ready geometry without support failures",
+      "Print-in-place articulated kinematic joints and snap-fits",
+      "High-resolution mesh tessellation and STL / 3MF exports",
+      "Internal lattice infill and mass optimization for speed and strength",
     ],
-    visualDirection: "Mould flow fill-time progression and false-color thermal/pressure gradient mapping.",
-    technicalBadge: "Rheology & Thermal Visualization",
-    modelType: "flow",
-    enquiryPrompt: "Enquire about Mould Flow Analysis",
+    visualDirection: "Layer-by-layer additive toolpath visualization transitioning into solid 3D print model.",
+    technicalBadge: "DFAM (Design for Additive Manufacturing)",
+    modelType: "3dprinter",
+    enquiryPrompt: "Enquire about 3D Printer Designs",
   },
   {
     id: "design-optimization",
-    number: "08",
+    number: "07",
     title: "Design Optimization",
     tagline: "Mass reduction, rib re-engineering, and structural stress minimization.",
     description:
       "Iterative engineering refinement to maximize stiffness-to-weight ratios, eliminate stress concentrations, optimize wall thicknesses, and reduce manufacturing cycle times while preserving critical safety factors.",
     keyDeliverables: [
-      "Topology optimization and structural mass reduction",
-      "Rib pattern restructuring for stiffness without sink marks",
+      "Generative mass reduction and load-path alignment",
+      "Rib pattern restructuring for stiffness",
       "Stress relief filleting & draft angle optimization",
       "Material savings and cycle-time efficiency reviews",
     ],

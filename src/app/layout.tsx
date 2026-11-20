@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Outfit, Plus_Jakarta_Sans, Fira_Code } from "next/font/google";
 import "./globals.css";
 import { siteMetadata, generateStructuredData } from "@/config/seo";
-import { CustomCursor } from "@/components/layout/CustomCursor";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -57,7 +56,6 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[#050505] text-[#F5F5F5] antialiased selection:bg-[#A3E635] selection:text-[#050505]">
-        <CustomCursor />
         {children}
       </body>
     </html>

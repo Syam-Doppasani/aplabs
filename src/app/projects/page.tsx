@@ -6,7 +6,7 @@ import { Portfolio } from "@/components/sections/Portfolio";
 export const metadata = {
   title: "Projects | AP Labs Mechanical Engineering",
   description:
-    "Verified mechanical engineering projects, 3D CAD models, and injection mould designs by AP Labs.",
+    "Verified mechanical engineering projects, 3D CAD models, and precision designs by AP Labs.",
 };
 
 export default function ProjectsPage() {

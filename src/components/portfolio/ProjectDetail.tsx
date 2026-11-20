@@ -85,6 +85,74 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
             <ModelViewer project={project} />
           </div>
 
+          {/* Workproof Video & CAD Proof Assets (Native captures from studio archives) */}
+          {(project.mediaVideo || (project.mediaImages && project.mediaImages.length > 0)) && (
+            <div className="space-y-4 pt-4 border-t border-white/10">
+              <div className="flex items-center gap-2">
+                <TechnicalLabel variant="lime" size="sm">
+                  WORKPROOF CAD ASSETS
+                </TechnicalLabel>
+                <span className="font-mono text-xs text-[#A1A1AA] uppercase">
+                  // NATIVE CAD MODEL &amp; SIMULATION CAPTURE
+                </span>
+              </div>
+
+              {/* 3D CAD Video Turnaround Simulation */}
+              {project.mediaVideo && (
+                <div className="border border-white/15 bg-black overflow-hidden">
+                  <div className="flex items-center justify-between p-2.5 bg-[#111411] border-b border-white/10 font-mono text-[10px]">
+                    <span className="text-[#A3E635] uppercase font-bold flex items-center gap-1.5">
+                      ▶ 3D CAD Dynamic Simulation Turnaround (.MP4)
+                    </span>
+                    <span className="text-[#A1A1AA]">60 FPS CAD PLAYBACK</span>
+                  </div>
+                  <video
+                    src={project.mediaVideo}
+                    controls
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full max-h-[400px] object-contain bg-black"
+                  />
+                </div>
+              )}
+
+              {/* High-Resolution CAD Workproof Captures */}
+              {project.mediaImages && project.mediaImages.length > 0 && (
+                <div className="space-y-2">
+                  <span className="font-mono text-[10px] text-[#A1A1AA] uppercase block">
+                    // High-Resolution Engineering Workproof Captures ({project.mediaImages.length})
+                  </span>
+                  <div
+                    className={`grid grid-cols-1 ${
+                      project.mediaImages.length > 1
+                        ? "sm:grid-cols-2 md:grid-cols-3"
+                        : "sm:grid-cols-1"
+                    } gap-3`}
+                  >
+                    {project.mediaImages.map((img, idx) => (
+                      <div
+                        key={idx}
+                        className="border border-white/15 bg-black overflow-hidden group flex flex-col"
+                      >
+                        <div className="p-2 bg-[#111411] border-b border-white/10 font-mono text-[9px] text-[#A3E635] truncate flex items-center justify-between">
+                          <span>CAD_PROOF_0{idx + 1}</span>
+                          <span className="text-[#A1A1AA]/60">VERIFIED</span>
+                        </div>
+                        <img
+                          src={img}
+                          alt={`${project.title} capture ${idx + 1}`}
+                          className="w-full h-48 object-contain bg-[#080a08] p-2 transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Engineering Challenge & Design Approach */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-5 bg-[#111411] border-l-2 border-[#A3E635]">

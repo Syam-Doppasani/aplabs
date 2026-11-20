@@ -50,7 +50,7 @@ export const Portfolio: React.FC = () => {
           label="03 // PORTFOLIO"
           tagline="VERIFIED ENGINEERING ASSETS"
           title="ENGINEERED WITH PURPOSE. DESIGNED TO PERFORM."
-          description="A selection of mechanical engineering and product design projects delivered by AP Labs — highlighting dimensional precision, functional geometry, mould tooling, and CAD craftsmanship."
+          description="A selection of mechanical engineering and product design projects delivered by AP Labs — highlighting dimensional precision, functional geometry, 3D additive design, and CAD craftsmanship."
         />
 
         {/* Dynamic Category Filter */}

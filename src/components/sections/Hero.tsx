@@ -38,7 +38,7 @@ export const Hero: React.FC = () => {
             </h1>
 
             <p className="text-base sm:text-lg text-[#A1A1AA] leading-relaxed max-w-xl font-sans font-light">
-              From mechanical components to complex mould assemblies, AP Labs
+              From mechanical components and 3D printer designs to complex assemblies, AP Labs
               brings engineering concepts into precise digital designs.
             </p>
 
@@ -94,19 +94,21 @@ export const Hero: React.FC = () => {
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#A3E635]" />
             <span className="text-white font-medium uppercase">CONFIRMED CAPABILITIES:</span>
-            <span>8 SPECIALIZED MECHANICAL SERVICES</span>
+            <span>7 SPECIALIZED MECHANICAL SERVICES</span>
           </div>
 
           <div className="hidden md:flex items-center gap-6 text-[10px] uppercase text-[#A1A1AA]/80">
             <span>PART DESIGN</span>
             <span>•</span>
-            <span>MOULD TOOLING</span>
+            <span>3D CAD MODELLING</span>
+            <span>•</span>
+            <span>3D PRINTER DESIGNS</span>
             <span>•</span>
             <span>SHEET METAL</span>
             <span>•</span>
             <span>ASSEMBLY BOM</span>
             <span>•</span>
-            <span>SIMULATION RHEOLOGY</span>
+            <span>DESIGN OPTIMIZATION</span>
           </div>
         </div>
       </div>

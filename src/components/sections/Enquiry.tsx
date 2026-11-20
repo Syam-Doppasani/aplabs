@@ -29,7 +29,7 @@ export const Enquiry: React.FC = () => {
           </h2>
 
           <p className="text-sm text-[#A1A1AA] leading-relaxed max-w-xl mx-auto mb-8 font-sans font-light">
-            Share your product, component, or mould design specifications directly with AP Labs.
+            Share your product, component, or 3D print design specifications directly with AP Labs.
           </p>
 
           {/* Prominent CTA */}

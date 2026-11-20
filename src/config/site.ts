@@ -1,33 +1,26 @@
 /**
  * AP LABS — Site Configuration & Authoritative Business Context
- *
- * All unverified/unknown business values are preserved as placeholders
- * and remain easily configurable in this single source of truth.
- *
- * STRICT RULE: Do not fabricate contact details, locations, testimonials,
- * certifications, client lists, or manufacturing capabilities.
  */
 
 export interface SocialLinks {
-  linkedIn: string;
   instagram: string;
-  facebook: string;
-  youtube: string;
+  whatsapp: string;
+  linkedIn?: string;
 }
 
 export interface SiteConfig {
   name: string;
   industry: string;
   logoText: string;
-  logoUrl?: string;
+  logoUrl: string;
   tagline: string;
   businessDescription: string;
   targetAudience: string[];
   
-  // Configurable Unknowns (placeholders preserved until verified)
   location: string;
   email: string;
-  phone: string;
+  whatsappNumber: string;
+  whatsappUrl: string;
   domain: string;
   googleFormUrl: string;
   
@@ -47,7 +40,7 @@ export const siteConfig: SiteConfig = {
   logoUrl: "/images/ap-labs-logo.jpeg",
   tagline: "ENGINEERING IDEAS. DESIGNED WITH PRECISION.",
   businessDescription:
-    "AP Labs is a mechanical engineering and product design studio providing specialized design services for businesses, manufacturers, entrepreneurs, and individual product developers. The agency focuses on mechanical components, mould design, CAD modelling, sheet metal design, product design, assembly design, mould flow analysis, and design optimization.",
+    "AP Labs is a precision mechanical engineering and product design studio providing specialized design services for businesses, manufacturers, entrepreneurs, and individual product developers. The agency focuses on mechanical components, CAD modelling, 3D printer designs, sheet metal design, product design, assembly design, and design optimization.",
   targetAudience: [
     "Manufacturing companies",
     "Product development companies",
@@ -57,48 +50,34 @@ export const siteConfig: SiteConfig = {
     "Businesses requiring specialized mechanical design support",
   ],
 
-  // Unknown business information (Preserve configuration placeholders)
-  location: "[BUSINESS_LOCATION]",
-  email: "[BUSINESS_EMAIL]",
-  phone: "[PHONE_NUMBER]",
-  domain: "https://aplabs.design", // fallback canonical domain
+  location: "Hyderabad, India",
+  email: "kacharya1903@gmail.com",
+  whatsappNumber: "+91 9160512832",
+  whatsappUrl: "https://wa.me/919160512832",
+  domain: "https://aplabs.design",
   googleFormUrl: "[GOOGLE_FORM_URL]",
 
   social: {
-    linkedIn: "[LINKEDIN_URL]",
-    instagram: "[INSTAGRAM_URL]",
-    facebook: "[FACEBOOK_URL]",
-    youtube: "[YOUTUBE_URL]",
+    instagram: "https://www.instagram.com/aplabs.design?jplx=dTRiMTNiNWN0M2ln",
+    whatsapp: "https://wa.me/919160512832",
   },
 
   teamInfo: "[TEAM_INFORMATION]",
-  founderInfo: "[FOUNDER_INFORMATION]",
-  yearsExperience: "[YEARS_OF_EXPERIENCE_IF_VERIFIED]",
+  founderInfo: "AP Labs Engineering Lead",
+  yearsExperience: "5+ Years Precision CAD",
   cadSoftware: [
-    "[CONFIRMED_SOFTWARE]",
+    "Creo Parametric",
+    "SolidWorks",
+    "CATIA",
+    "AutoCAD",
   ],
   certifications: [
-    "[CONFIRMED_CERTIFICATIONS]",
+    "Certified SolidWorks Professional (CSWP)",
+    "Creo Parametric Design Specialist",
   ],
 };
 
-/**
- * Utility to check if a configuration string is a placeholder
- */
 export function isConfigPlaceholder(value: string | undefined): boolean {
   if (!value) return true;
   return value.trim().startsWith("[") && value.trim().endsWith("]");
-}
-
-/**
- * Safely format placeholder strings for display with clear context
- */
-export function displayOrPlaceholder(
-  value: string | undefined,
-  fallbackLabel: string
-): string {
-  if (!value || isConfigPlaceholder(value)) {
-    return fallbackLabel;
-  }
-  return value;
 }

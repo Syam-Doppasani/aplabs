@@ -23,7 +23,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         "group relative bg-[#0B0D0B] border border-white/10 hover:border-[#A3E635]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer crosshair-corner",
         className
       )}
-      data-cursor="VIEW"
     >
       {/* Top Header */}
       <div className="p-4 pb-2.5 flex items-start justify-between gap-3 border-b border-white/5">

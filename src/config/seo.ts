@@ -7,16 +7,16 @@ export const siteMetadata = {
     template: "%s | AP Labs",
   },
   description:
-    "AP Labs is a precision mechanical engineering and product design studio. Specializing in mechanical part design, injection mould design, 3D CAD modelling, sheet metal design, assembly engineering, mould flow analysis, and design optimization.",
+    "AP Labs is a precision mechanical engineering and product design studio. Specializing in mechanical part design, 3D CAD modelling, 3D printer designs, sheet metal design, assembly engineering, and design optimization.",
   keywords: [
     "Mechanical Part Design",
-    "Injection Mould Design",
     "3D CAD Modelling",
+    "3D Printer Designs",
+    "Additive Manufacturing Design",
     "Mechanical Engineering Design",
     "Sheet Metal Design",
     "Product Design Services",
     "Assembly Design",
-    "Mould Flow Analysis",
     "Mechanical Design Optimization",
     "Parametric CAD Engineering",
     "GD&T Tolerancing",
@@ -42,14 +42,14 @@ export const siteMetadata = {
     url: siteConfig.domain,
     title: "AP Labs | Mechanical Engineering & Product Design Studio",
     description:
-      "Engineering ideas designed with precision. Mechanical part design, injection mould engineering, 3D CAD modelling, and design optimization.",
+      "Engineering ideas designed with precision. Mechanical part design, 3D printer designs, 3D CAD modelling, and design optimization.",
     siteName: "AP Labs",
   },
   twitter: {
     card: "summary_large_image",
     title: "AP Labs | Mechanical Engineering & Product Design Studio",
     description:
-      "Engineering ideas designed with precision. Mechanical part design, injection mould engineering, 3D CAD modelling, and design optimization.",
+      "Engineering ideas designed with precision. Mechanical part design, 3D printer designs, 3D CAD modelling, and design optimization.",
   },
 };
 
@@ -66,12 +66,11 @@ export function generateStructuredData() {
     url: siteConfig.domain,
     knowsAbout: [
       "Mechanical Part Design",
-      "Injection Mould Design",
       "3D CAD Modelling",
+      "3D Printer Designs",
       "Sheet Metal Design",
       "Product Design",
       "Assembly Design",
-      "Mould Flow Analysis",
       "Design Optimization",
     ],
     serviceType: "Mechanical Engineering & Product Design Studio",
@@ -111,15 +110,15 @@ export function generateStructuredData() {
         name: "What mechanical design services does AP Labs offer?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "AP Labs offers eight specialized mechanical engineering services: Mechanical Part Design, Injection Mould Design, 3D CAD Modelling, Sheet Metal Design, Product Design, Assembly Design, Mould Flow Analysis, and Design Optimization.",
+          text: "AP Labs offers seven specialized mechanical engineering services: Mechanical Part Design, 3D CAD Modelling, 3D Printer Designs, Sheet Metal Design, Product Design, Assembly Design, and Design Optimization.",
         },
       },
       {
         "@type": "Question",
-        name: "Does AP Labs provide injection mould design?",
+        name: "Does AP Labs design for 3D printing and additive manufacturing?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. AP Labs provides complete injection mould tooling design including core and cavity splitting, parting line engineering, runner and gating layouts, cooling channel circuits, and guided ejection systems.",
+          text: "Yes. AP Labs provides complete additive engineering including build orientation optimization, support-free geometries, minimum wall thickness enforcement, snap-fit tolerances, and lightweight lattice structures.",
         },
       },
       {
@@ -127,43 +126,23 @@ export function generateStructuredData() {
         name: "Can AP Labs create 3D CAD models for manufacturing?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. AP Labs engineers precision parametric solid and surface models suitable for downstream CNC machining, casting, tooling manufacture, 3D printing, and CMM quality verification.",
+          text: "Yes. AP Labs engineers precision parametric solid and surface models suitable for downstream CNC machining, 3D printing, sheet metal fabrication, and CMM quality verification.",
         },
       },
       {
         "@type": "Question",
-        name: "Does AP Labs work with individual product developers and entrepreneurs?",
+        name: "What file deliverables are provided upon project completion?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. AP Labs supports manufacturing companies, product development studios, industrial enterprises, startup entrepreneurs, and individual product inventors requiring specialized mechanical design engineering.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can businesses enquire about complex mechanical assembly design?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. AP Labs provides full mechanical assembly design encompassing kinematic constraints, tolerance stack-up analysis, collision/interference verification, and structured Bill of Materials (BOM) creation.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What information should I provide for a design enquiry?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "To initiate an enquiry, provide your project description, design objectives, dimensional or space constraints, target materials, known operating loads, reference sketches or 2D/3D files, and your timeline.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How can I discuss a mechanical engineering project with AP Labs?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "You can submit your project requirements directly through the AP Labs Project Enquiry Form link on the website.",
+          text: "Standard handoffs include native CAD files (Creo, SolidWorks, CATIA), neutral 3D formats (STEP AP242, IGES, Parasolid, STL/3MF), and 2D engineering drawings with ASME Y14.5 GD&T annotations.",
         },
       },
     ],
   };
 
-  return { organizationSchema, websiteSchema, faqSchema };
+  return {
+    organizationSchema,
+    websiteSchema,
+    faqSchema,
+  };
 }

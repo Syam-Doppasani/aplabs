@@ -6,7 +6,7 @@ import { Enquiry } from "@/components/sections/Enquiry";
 export const metadata = {
   title: "Contact & Enquiry | AP Labs Mechanical Engineering",
   description:
-    "Submit your mechanical design, mould tooling, or 3D CAD project requirements to AP Labs.",
+    "Submit your mechanical design, 3D printer, or CAD project requirements to AP Labs.",
 };
 
 export default function ContactPage() {

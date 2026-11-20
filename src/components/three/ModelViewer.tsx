@@ -4,12 +4,11 @@ import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { setupSceneLighting } from "./SceneLighting";
 import {
+  createGunSlideAssembly,
+  createDamSpillwayAssembly,
+  createBatmanBladeAssembly,
+  createWatchAssembly,
   createPlanetaryAssembly,
-  createMouldAssembly,
-  createSheetMetalChassis,
-  createHandheldHousing,
-  createMouldFlowMesh,
-  createTopologyBracket,
 } from "./CADGeometries";
 import { ModelFallback } from "./ModelFallback";
 import { ProjectItem } from "@/config/projects";
@@ -71,21 +70,16 @@ export const ModelViewer: React.FC<ModelViewerProps> = ({
     const expVal = exp ? 1.0 : 0.0;
 
     switch (type) {
-      case "gear":
-      case "joint":
-        return createPlanetaryAssembly("titanium", wf, expVal, planes);
-      case "mould":
-        return createMouldAssembly(wf, expVal, planes);
-      case "chassis":
-        return createSheetMetalChassis(wf, expVal, planes);
-      case "handheld":
-        return createHandheldHousing(wf, expVal, planes);
-      case "flow":
-        return createMouldFlowMesh(wf, 0.75, planes);
-      case "bracket":
-        return createTopologyBracket(wf, planes);
+      case "gun":
+        return createGunSlideAssembly(wf, expVal, planes);
+      case "dam":
+        return createDamSpillwayAssembly(wf, expVal, planes);
+      case "blade":
+        return createBatmanBladeAssembly(wf, expVal, planes);
+      case "watch":
+        return createWatchAssembly(wf, expVal, planes);
       default:
-        return createPlanetaryAssembly("titanium", wf, expVal, planes);
+        return createGunSlideAssembly(wf, expVal, planes);
     }
   };
 
@@ -287,7 +281,6 @@ export const ModelViewer: React.FC<ModelViewerProps> = ({
         <div
           ref={containerRef}
           className="w-full h-full cursor-grab active:cursor-grabbing"
-          data-cursor="DRAG"
         />
       ) : (
         <ModelFallback type={project.modelType} title={project.title} />

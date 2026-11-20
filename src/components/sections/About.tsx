@@ -31,8 +31,8 @@ export const About: React.FC = () => {
                 <span className="text-[#A3E635]">Every tolerance matters.</span>
               </h3>
               <p className="text-sm text-[#A1A1AA] leading-relaxed font-sans font-light">
-                AP Labs specializes in mechanical part design, injection mould
-                tooling, 3D CAD modelling, and structural optimization. We
+                AP Labs specializes in precision mechanical part design, 3D printer
+                designs, 3D CAD modelling, and structural optimization. We
                 bridge industrial design aesthetics with rigorous GD&amp;T
                 engineering discipline.
               </p>
@@ -70,9 +70,9 @@ export const About: React.FC = () => {
                   </span>
                 </div>
                 <div className="p-3 bg-[#111411] border-l-2 border-[#A3E635]">
-                  <span className="text-white font-bold block">02. Tooling-First CAD</span>
+                  <span className="text-white font-bold block">02. Manufacturing-Ready CAD</span>
                   <span className="text-[#A1A1AA] text-[11px] block mt-0.5">
-                    Anticipating parting lines, draft angles, and CNC tool paths.
+                    Engineering for CNC machining, 3D printing, and sheet-metal forming.
                   </span>
                 </div>
                 <div className="p-3 bg-[#111411] border-l-2 border-[#A3E635]">

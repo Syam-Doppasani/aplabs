@@ -16,13 +16,13 @@ const faqList: FAQItem[] = [
     id: "services-scope",
     question: "What mechanical design services does AP Labs offer?",
     answer:
-      "AP Labs provides eight confirmed services: Mechanical Part Design, Injection Mould Design, 3D CAD Modelling, Sheet Metal Design, Product Design, Assembly Design, Mould Flow Analysis, and Design Optimization.",
+      "AP Labs provides seven confirmed services: Mechanical Part Design, 3D CAD Modelling, 3D Printer Designs, Sheet Metal Design, Product Design, Assembly Design, and Design Optimization.",
   },
   {
-    id: "injection-mould",
-    question: "Does AP Labs provide injection mould design?",
+    id: "additive-3d-printing",
+    question: "Does AP Labs design for 3D printing and additive manufacturing?",
     answer:
-      "Yes. We design complete tooling systems including core/cavity splitting, parting surfaces, cooling channels, and ejection assemblies.",
+      "Yes. We engineer components with optimized build orientation, minimal support overhangs, controlled wall thicknesses, snap-fit tolerances, and lattice structures for functional 3D printing.",
   },
   {
     id: "cad-formats",

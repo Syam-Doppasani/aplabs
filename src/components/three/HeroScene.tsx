@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { setupSceneLighting } from "./SceneLighting";
-import { createPlanetaryAssembly } from "./CADGeometries";
+import { createWatchAssembly } from "./CADGeometries";
 import { RotateCw, Layers, Eye, RefreshCw, Sparkles } from "lucide-react";
 import { TechnicalLabel } from "@/components/ui/TechnicalLabel";
 
@@ -65,7 +65,7 @@ export const HeroScene: React.FC = () => {
     scene.add(grid);
 
     // 6. Build Initial Model
-    const modelGroup = createPlanetaryAssembly(materialMode, wireframe, 0);
+    const modelGroup = createWatchAssembly(wireframe, 0);
     scene.add(modelGroup);
     modelGroupRef.current = modelGroup;
 
@@ -146,8 +146,7 @@ export const HeroScene: React.FC = () => {
     if (modelGroupRef.current) {
       sceneRef.current.remove(modelGroupRef.current);
     }
-    const newGroup = createPlanetaryAssembly(
-      materialMode,
+    const newGroup = createWatchAssembly(
       wireframe,
       exploded ? 1.0 : 0.0
     );
@@ -161,7 +160,6 @@ export const HeroScene: React.FC = () => {
       <div
         ref={containerRef}
         className="w-full h-full cursor-grab active:cursor-grabbing"
-        data-cursor="CAD"
       />
 
       {/* Engineering HUD Overlays */}
@@ -172,7 +170,7 @@ export const HeroScene: React.FC = () => {
           </TechnicalLabel>
           <span className="text-[#A3E635]">● 60 FPS</span>
         </div>
-        <div>MODEL: PLANETARY_HUB_ASSY_v4.STEP</div>
+        <div>MODEL: LUXURY_HOROLOGY_ASM0001.PRT</div>
         <div>
           ORIENTATION: X:{coords.x} Y:{coords.y} Z:{coords.z}
         </div>

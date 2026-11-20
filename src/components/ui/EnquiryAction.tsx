@@ -100,7 +100,7 @@ export const EnquiryAction: React.FC<EnquiryActionProps> = ({
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#A3E635]" />
-                  <span>Required Service (Part Design, Mould, CAD, Sheet Metal, etc.)</span>
+                  <span>Required Service (Part Design, 3D Printing, CAD, Sheet Metal, etc.)</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#A3E635]" />

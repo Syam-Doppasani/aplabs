@@ -8,7 +8,7 @@ import { EnquiryAction } from "@/components/ui/EnquiryAction";
 export const metadata = {
   title: "Services | AP Labs Mechanical Engineering",
   description:
-    "Explore the 8 specialized mechanical engineering and product design disciplines offered by AP Labs.",
+    "Explore the 7 specialized mechanical engineering and product design disciplines offered by AP Labs.",
 };
 
 export default function ServicesPage() {
@@ -20,7 +20,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <SectionHeading
             label="01 // ENGINEERING SERVICES"
-            tagline="8 CONFIRMED DISCIPLINES"
+            tagline="7 CONFIRMED DISCIPLINES"
             title="ENGINEERING CAPABILITIES."
             description="Specialized design solutions shaped around mechanical precision, manufacturability, and functional performance. Select a service to explore deliverables or initiate a project enquiry."
           />

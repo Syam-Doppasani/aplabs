@@ -4,11 +4,10 @@ import React, { useState, useEffect, useRef } from "react";
 import * as THREE from "three";
 import { setupSceneLighting } from "../three/SceneLighting";
 import {
-  createPlanetaryAssembly,
-  createMouldAssembly,
-  createSheetMetalChassis,
-  createMouldFlowMesh,
-  createTopologyBracket,
+  createGunSlideAssembly,
+  createDamSpillwayAssembly,
+  createBatmanBladeAssembly,
+  createWatchAssembly,
 } from "../three/CADGeometries";
 import { SectionHeading } from "../ui/SectionHeading";
 import { TechnicalLabel } from "../ui/TechnicalLabel";
@@ -53,44 +52,46 @@ const showcaseModes: ShowcaseMode[] = [
   {
     id: "exploded-assembly",
     number: "02",
-    name: "Exploded Mechanical Assembly",
+    name: "Exploded Horological Assembly",
     description:
-      "Axial part separation visualization revealing internal needle bearings, sun pinion, monolithic carrier cage, and ring casing.",
+      "Axial part separation visualization revealing sapphire crystal, 60-flute gold bezel, deep cobalt dial with NANI script, and internal mechanical caliber case.",
     engineeringNote:
-      "Verifies assembly sequence, fastener accessibility, and clearance during maintenance cycles.",
+      "Verifies 0.05mm hand clearance and internal movement retention ring geometry under shock loads.",
     defaultExploded: true,
     hasSlider: true,
     sliderLabel: "Assembly Separation Distance",
   },
   {
-    id: "mould-breakdown",
+    id: "gun-tolerancing",
     number: "03",
-    name: "Injection Mould Breakdown",
+    name: "Tactical Slide Tolerancing",
     description:
-      "Core and cavity plate separation with guided leader pins, conformal cooling channel loops, and ejector pin arrays.",
+      "Precision multi-axis CNC slide geometry displaying 8 compensator ports, 22° rear racking serrations, and gold TiN top accent plate.",
     engineeringNote:
-      "Inspects parting line shut-offs, slide mechanisms, and thermal dissipation paths.",
-    defaultExploded: true,
+      "Inspects internal slide rail tolerances (±0.008mm ISO Grade 5) and barrel lockup geometry.",
+    defaultExploded: false,
+    hasSlider: true,
+    sliderLabel: "Slide Reciprocation Separation",
   },
   {
     id: "cross-section",
     number: "04",
     name: "Mechanical Cross-Section Analysis",
     description:
-      "Dynamic cutting plane passing through housing walls to verify wall thickness uniformity, draft angles, and internal clearance fit.",
+      "Dynamic cutting plane passing through component walls to verify internal bore concentricity, wall thickness uniformity, and clearance fits.",
     engineeringNote:
-      "Ensures no internal clashes occur between rotating components and stationary housings.",
+      "Ensures zero internal interference between reciprocating assemblies and stationary frames.",
     hasSlider: true,
     sliderLabel: "Cutting Plane Offset",
   },
   {
     id: "sheet-metal",
     number: "05",
-    name: "Sheet Metal Geometry & Fold",
+    name: "Batman Blade Aerodynamic Sheet",
     description:
-      "Comparison between formed 3D sheet metal chassis and calculated flat-pattern with bend deductions and relief notches.",
+      "Abrasive CNC waterjet profile with 3.2mm Zoltek Panex 33 carbon-composite thickness, reflex cambered wingtips, and balanced bat head core.",
     engineeringNote:
-      "K-factor 0.420 applied for precision CNC press-brake air bending without material necking.",
+      "Symmetrical aerofoil profile provides gyroscopic flight stabilization and flat-pattern nesting optimization.",
   },
   {
     id: "orbit-inspection",
@@ -99,16 +100,18 @@ const showcaseModes: ShowcaseMode[] = [
     description:
       "Full free-axis spatial rotation allowing inspection from any angle with studio rim lighting and coordinate tracking.",
     engineeringNote:
-      "Continuous rotational duty simulation with zero visual lag.",
+      "Real-time 60 FPS WebGL inspection with physically-based metallic PBR shaders.",
   },
   {
-    id: "mould-flow",
+    id: "dam-hydraulics",
     number: "07",
-    name: "Mould Flow Rheology Simulation",
+    name: "Hydroelectric Spillway Dynamics",
     description:
-      "Engineering visualization of polymer melt front progression, pressure distribution, and weld line containment.",
+      "Parametric civil-mechanical spillway dam featuring 10 sluice gate bays, ogee discharge apron, and sub-surface penstock conduit.",
     engineeringNote:
-      "Verified simulation visualization for thin-wall PA66-GF30 injection dynamics.",
+      "WES ogee crest geometry prevents sub-atmospheric cavitation erosion during peak hydrodynamic discharge.",
+    hasSlider: true,
+    sliderLabel: "Sluice Gate Vertical Lift",
   },
   {
     id: "topology-opt",
@@ -216,27 +219,27 @@ export const TechnicalShowcase: React.FC = () => {
 
     if (activeMode === "wireframe-solid") {
       const isWf = sliderValue < 0.5;
-      model = createPlanetaryAssembly(isWf ? "wireframe" : "titanium", isWf, 0);
+      model = createWatchAssembly(isWf, 0);
     } else if (activeMode === "exploded-assembly") {
-      model = createPlanetaryAssembly("titanium", false, sliderValue);
-    } else if (activeMode === "mould-breakdown") {
-      model = createMouldAssembly(false, 0.85);
+      model = createWatchAssembly(false, sliderValue);
+    } else if (activeMode === "gun-tolerancing") {
+      model = createGunSlideAssembly(wireframe, sliderValue);
     } else if (activeMode === "cross-section") {
       const clipPlane = new THREE.Plane(
         new THREE.Vector3(0, -1, 0),
         (sliderValue - 0.5) * 1.5
       );
-      model = createPlanetaryAssembly("titanium", false, 0, [clipPlane]);
+      model = createGunSlideAssembly(false, 0, [clipPlane]);
     } else if (activeMode === "sheet-metal") {
-      model = createSheetMetalChassis(wireframe, 0.2);
+      model = createBatmanBladeAssembly(wireframe, 0);
     } else if (activeMode === "orbit-inspection") {
-      model = createPlanetaryAssembly("titanium", wireframe, 0.3);
-    } else if (activeMode === "mould-flow") {
-      model = createMouldFlowMesh(wireframe, sliderValue);
+      model = createWatchAssembly(wireframe, 0.2);
+    } else if (activeMode === "dam-hydraulics") {
+      model = createDamSpillwayAssembly(wireframe, sliderValue);
     } else if (activeMode === "topology-opt") {
-      model = createTopologyBracket(wireframe);
+      model = createGunSlideAssembly(wireframe, 0);
     } else {
-      model = createPlanetaryAssembly("titanium", false, 0);
+      model = createWatchAssembly(false, 0);
     }
 
     sceneRef.current.add(model);
@@ -253,7 +256,7 @@ export const TechnicalShowcase: React.FC = () => {
           label="04 // TECHNICAL EXHIBITION"
           tagline="CAD WORKFLOWS & VISUALIZATION"
           title="ENGINEERING DESIGN IN MOTION."
-          description="A professional digital laboratory exhibiting our primary mechanical design processes — from wireframe topology and mould architectures to FEA-informed generative structures."
+          description="A professional digital laboratory exhibiting our primary mechanical design processes — from wireframe topology and 3D additive architectures to FEA-informed generative structures."
         />
 
         {/* Mode Selector Tabs (8 modes) */}
@@ -307,7 +310,6 @@ export const TechnicalShowcase: React.FC = () => {
             <div
               ref={containerRef}
               className="w-full h-full cursor-grab active:cursor-grabbing"
-              data-cursor="CAD"
             />
 
             {/* Corner CAD Status */}

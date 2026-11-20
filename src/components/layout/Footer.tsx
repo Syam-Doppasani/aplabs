@@ -6,8 +6,7 @@ import { siteConfig, isConfigPlaceholder } from "@/config/site";
 import { confirmedServices } from "@/config/services";
 import { Logo } from "@/components/ui/Logo";
 import { GargantuaSingularityCard } from "@/components/ui/GargantuaSingularityCard";
-import { EnquiryAction } from "@/components/ui/EnquiryAction";
-import { ArrowUpRight, Mail, Phone, MapPin, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, Mail, MessageCircle, MapPin } from "lucide-react";
 import { TechnicalLabel } from "@/components/ui/TechnicalLabel";
 
 export const Footer: React.FC = () => {
@@ -22,8 +21,7 @@ export const Footer: React.FC = () => {
     if (!isConfigPlaceholder(siteConfig.googleFormUrl)) {
       window.open(siteConfig.googleFormUrl, "_blank", "noopener,noreferrer");
     } else {
-      // Trigger modal fallback
-      setEnquiryModalOpen(true);
+      window.open(siteConfig.whatsappUrl, "_blank", "noopener,noreferrer");
     }
   };
 
@@ -50,7 +48,7 @@ export const Footer: React.FC = () => {
           <GargantuaSingularityCard
             badge="AP LABS ENGINEERING"
             title="ENGINEERING BEYOND LIMITS"
-            subtitle="Precision mechanical component design, advanced 3D CAD modelling, and injection mould tooling engineered for real-world manufacturing."
+            subtitle="Precision mechanical component design, advanced 3D CAD modelling, and 3D printer designs engineered for real-world manufacturing."
             cta="Start a Project Enquiry"
             onCtaClick={handleCtaClick}
             colorA="#A3E635"
@@ -59,7 +57,7 @@ export const Footer: React.FC = () => {
             speed={1.0}
             interactive={true}
             tilt={true}
-            logoSrc="/images/ap-labs-logo.jpeg"
+            logoSrc="/images/logo-with-name.jpeg"
             className="w-full border border-white/10 shadow-[0_30px_90px_rgba(0,0,0,0.9)]"
           />
         </div>
@@ -71,7 +69,7 @@ export const Footer: React.FC = () => {
             <Logo size="md" />
 
             <p className="text-xs text-[#A1A1AA] leading-relaxed max-w-sm font-sans font-light">
-              Precision mechanical engineering and product design studio. Specialized in CAD modelling, injection mould tooling, and component optimization.
+              Precision mechanical engineering and product design studio. Specialized in CAD modelling, 3D printer designs, and component optimization.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-2">
@@ -79,7 +77,7 @@ export const Footer: React.FC = () => {
                 CAD MODELLING
               </TechnicalLabel>
               <TechnicalLabel variant="gray" size="sm">
-                MOULD DESIGN
+                3D PRINTER DESIGNS
               </TechnicalLabel>
               <TechnicalLabel variant="gray" size="sm">
                 GD&amp;T PRECISION
@@ -146,7 +144,7 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Configurable Business Information */}
+          {/* Contact Details (WhatsApp only - No Call Button) */}
           <div className="space-y-3">
             <div className="font-mono text-xs text-[#A3E635] uppercase tracking-wider font-semibold">
               // Studio Details
@@ -164,24 +162,29 @@ export const Footer: React.FC = () => {
                 <Mail className="w-3.5 h-3.5 text-[#A3E635] mt-0.5 shrink-0" />
                 <div>
                   <span className="text-white/40 block text-[10px]">EMAIL</span>
-                  {!isConfigPlaceholder(siteConfig.email) ? (
-                    <a
-                      href={`mailto:${siteConfig.email}`}
-                      className="hover:text-[#A3E635] transition-colors"
-                    >
-                      {siteConfig.email}
-                    </a>
-                  ) : (
-                    <span>{siteConfig.email}</span>
-                  )}
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="hover:text-[#A3E635] transition-colors"
+                  >
+                    {siteConfig.email}
+                  </a>
                 </div>
               </div>
 
+              {/* WhatsApp Only (No call button) */}
               <div className="flex items-start gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#A3E635] mt-0.5 shrink-0" />
+                <MessageCircle className="w-3.5 h-3.5 text-[#A3E635] mt-0.5 shrink-0" />
                 <div>
-                  <span className="text-white/40 block text-[10px]">PHONE</span>
-                  <span>{siteConfig.phone}</span>
+                  <span className="text-white/40 block text-[10px]">WHATSAPP ONLY</span>
+                  <a
+                    href={siteConfig.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#A3E635] hover:underline flex items-center gap-1 font-semibold"
+                  >
+                    {siteConfig.whatsappNumber}
+                    <ArrowUpRight className="w-2.5 h-2.5" />
+                  </a>
                 </div>
               </div>
 
@@ -189,36 +192,39 @@ export const Footer: React.FC = () => {
               <div className="pt-2">
                 <span className="text-white/40 block text-[10px] mb-1">CHANNELS</span>
                 <div className="flex flex-wrap gap-2 text-[10px]">
-                  {Object.entries(siteConfig.social).map(([platform, url]) => (
-                    <span
-                      key={platform}
-                      className="px-2 py-0.5 bg-white/5 border border-white/10 uppercase"
-                    >
-                      {!isConfigPlaceholder(url) ? (
-                        <a
-                          href={url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-[#A3E635] flex items-center gap-1"
-                        >
-                          {platform} <ArrowUpRight className="w-2.5 h-2.5" />
-                        </a>
-                      ) : (
-                        <span>{platform} [{platform.toUpperCase()}_URL]</span>
-                      )}
-                    </span>
-                  ))}
+                  <a
+                    href={siteConfig.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-2.5 py-1 bg-white/5 border border-white/10 uppercase hover:border-[#A3E635] hover:text-[#A3E635] transition-colors flex items-center gap-1.5"
+                  >
+                    <span>Instagram</span>
+                    <ArrowUpRight className="w-2.5 h-2.5" />
+                  </a>
+                  <a
+                    href={siteConfig.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-2.5 py-1 bg-white/5 border border-white/10 uppercase hover:border-[#A3E635] hover:text-[#A3E635] transition-colors flex items-center gap-1.5"
+                  >
+                    <span>WhatsApp</span>
+                    <ArrowUpRight className="w-2.5 h-2.5" />
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* ── 03. AP LABS Monumental Bold Footer Typography ── */}
-        <div className="pt-8 pb-10 border-t border-white/10 overflow-hidden select-none">
-          <h1 className="font-heading font-black text-6xl sm:text-8xl md:text-9xl lg:text-[13vw] xl:text-[14vw] tracking-tighter uppercase text-center leading-none text-transparent bg-clip-text bg-gradient-to-b from-[#F5F5F5] via-[#F5F5F5]/40 to-white/5 opacity-90 hover:opacity-100 transition-opacity duration-500 will-change-transform">
-            AP LABS
-          </h1>
+        {/* ── 03. AP LABS Shared Logo Photo Monumental Banner ── */}
+        <div className="pt-10 pb-12 border-t border-white/10 flex items-center justify-center overflow-hidden select-none">
+          <div className="relative w-full max-w-4xl px-4 flex justify-center">
+            <img
+              src="/images/logo-with-name.jpeg"
+              alt="AP LABS"
+              className="w-full max-w-2xl h-auto object-contain mix-blend-lighten opacity-95 hover:opacity-100 transition-opacity duration-500 filter drop-shadow-[0_0_40px_rgba(163,230,53,0.18)]"
+            />
+          </div>
         </div>
 
         {/* ── 04. Technical Footer Bottom Bar ── */}

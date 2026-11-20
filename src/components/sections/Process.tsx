@@ -30,7 +30,7 @@ const processSteps: ProcessStep[] = [
   {
     step: "04",
     title: "Design Evaluation",
-    description: "Execute interference checks, tolerance stack-ups, and DFM / mould flow validation.",
+    description: "Execute interference checks, tolerance stack-ups, and DFM / additive print validation.",
     output: "Clash & DFM Report",
   },
   {

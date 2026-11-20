@@ -41,7 +41,7 @@ export default function Home() {
               <div className="flex items-center gap-4">
                 <Link href="/services">
                   <Button variant="outline" size="md" icon={<ArrowRight className="w-4 h-4" />}>
-                    View All 8 Services
+                    View All 7 Services
                   </Button>
                 </Link>
               </div>
@@ -62,10 +62,10 @@ export default function Home() {
                     // 01. CAPABILITIES
                   </span>
                   <h3 className="font-heading text-xl font-bold uppercase text-white group-hover:text-[#A3E635] transition-colors">
-                    8 Confirmed Services
+                    7 Confirmed Services
                   </h3>
                   <p className="text-xs text-[#A1A1AA] leading-relaxed font-sans font-light">
-                    From precision mechanical part design and injection mould tooling to sheet metal and structural topology optimization.
+                    From precision mechanical part design and 3D printer designs to sheet metal and structural topology optimization.
                   </p>
                 </div>
                 <div className="pt-6 mt-8 border-t border-white/5 flex items-center justify-between text-xs font-mono text-[#A1A1AA] group-hover:text-white">
@@ -90,7 +90,7 @@ export default function Home() {
                     Interactive 3D Projects
                   </h3>
                   <p className="text-xs text-[#A1A1AA] leading-relaxed font-sans font-light">
-                    Examine planetary gearboxes, multi-cavity mould assemblies, and chassis models in real-time WebGL with cross-section cutaways.
+                    Examine tactical firearm slides, hydroelectric dams, batman blades, and luxury watches in real-time WebGL with cross-section cutaways.
                   </p>
                 </div>
                 <div className="pt-6 mt-8 border-t border-white/5 flex items-center justify-between text-xs font-mono text-[#A1A1AA] group-hover:text-white">
@@ -115,7 +115,7 @@ export default function Home() {
                     Technical Showcase
                   </h3>
                   <p className="text-xs text-[#A1A1AA] leading-relaxed font-sans font-light">
-                    Virtual laboratory simulating CAD wireframe transitions, exploded sequences, mould flow rheology, and FEA stress optimization.
+                    Virtual laboratory simulating CAD wireframe transitions, exploded sequences, additive 3D structures, and FEA stress optimization.
                   </p>
                 </div>
                 <div className="pt-6 mt-8 border-t border-white/5 flex items-center justify-between text-xs font-mono text-[#A1A1AA] group-hover:text-white">
