@@ -3,10 +3,11 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
+import { HomeProjectsShowcase } from "@/components/sections/HomeProjectsShowcase";
 import { Button } from "@/components/ui/Button";
 import { EnquiryAction } from "@/components/ui/EnquiryAction";
 import { TechnicalLabel } from "@/components/ui/TechnicalLabel";
-import { ArrowRight, Box, Compass, Cpu, Layers, ShieldCheck } from "lucide-react";
+import { ArrowRight, Box, Compass, Layers } from "lucide-react";
 
 export default function Home() {
   return (
@@ -15,10 +16,13 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-grow">
-        {/* 01. Cinematic 3D Hero */}
+        {/* 01. Cinematic 3D Hero + Verified CAD Asset Reel */}
         <Hero />
 
-        {/* 02. Spacious Quick-Access Highlights (Good Spacing & Breathing Room) */}
+        {/* 02. Flagship Verified Projects Showcase with Real Images from Assets */}
+        <HomeProjectsShowcase />
+
+        {/* 03. Spacious Quick-Access Capabilities & Disciplines */}
         <section className="relative py-28 sm:py-36 bg-[#050505] border-t border-white/5 overflow-hidden">
           {/* Subtle Grid */}
           <div className="absolute inset-0 bg-cad-grid opacity-20 pointer-events-none" />
@@ -87,14 +91,14 @@ export default function Home() {
                     // 02. PORTFOLIO
                   </span>
                   <h3 className="font-heading text-xl font-bold uppercase text-white group-hover:text-[#A3E635] transition-colors">
-                    Interactive 3D Projects
+                    Verified CAD Archives
                   </h3>
                   <p className="text-xs text-[#A1A1AA] leading-relaxed font-sans font-light">
                     Examine tactical firearm slides, hydroelectric dams, batman blades, and luxury watches in real-time WebGL with cross-section cutaways.
                   </p>
                 </div>
                 <div className="pt-6 mt-8 border-t border-white/5 flex items-center justify-between text-xs font-mono text-[#A1A1AA] group-hover:text-white">
-                  <span>Inspect Models</span>
+                  <span>Inspect All Files</span>
                   <ArrowRight className="w-4 h-4 text-[#A3E635] transition-transform group-hover:translate-x-1" />
                 </div>
               </Link>
@@ -135,7 +139,7 @@ export default function Home() {
                   Tell us about your product or component requirements.
                 </h3>
                 <p className="text-xs text-[#A1A1AA] font-sans font-light">
-                  Submit functional criteria, reference drawings, or CAD briefs directly via our Google Form portal.
+                  Submit functional criteria, reference drawings, or CAD briefs directly via WhatsApp or our enquiry portal.
                 </p>
               </div>
 
