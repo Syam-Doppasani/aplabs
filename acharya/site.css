@@ -1,0 +1,701 @@
+/* Acharya N Co — Design System Overrides & Custom Components
+ * Loaded AFTER compiled Tailwind v4 chunks. Never modifies original chunks.
+ */
+
+:root {
+  /* Swappable serif display token: replace `arizonaFlare` with any open serif (e.g. "Fraunces") without touching markup */
+  --font-display-serif: arizonaFlare, "Fraunces", "Georgia", serif;
+  --font-arizona: var(--font-display-serif);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --acharya-grid-line: rgba(8, 9, 10, 0.06);
+  --acharya-grid-accent: rgba(12, 140, 94, 0.14);
+  --acharya-surface-elevated: #f9f6f3;
+  --acharya-modal-bg: #ffffff;
+}
+
+.dark {
+  --acharya-grid-line: rgba(255, 255, 255, 0.06);
+  --acharya-grid-accent: rgba(24, 226, 153, 0.16);
+  --acharya-surface-elevated: #0f0f12;
+  --acharya-modal-bg: #0c0d10;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Ensure crisp focus visibility for WCAG AA keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* Wordmark styling */
+.acharya-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: var(--color-text-main);
+  text-decoration: none;
+}
+
+.acharya-wordmark-text {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Header nav link alignment */
+.acharya-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Ambient Hero & Section Blueprint Grids (replaces inert React canvases) */
+.acharya-hero-canvas {
+  opacity: 0.9;
+}
+
+.acharya-blueprint-bg {
+  background-image:
+    linear-gradient(to right, var(--acharya-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--acharya-grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.acharya-card-graphic {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.5rem 0;
+  overflow: hidden;
+}
+
+.acharya-card-graphic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--acharya-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--acharya-grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(circle at 50% 42%, #000 35%, transparent 82%);
+  -webkit-mask-image: radial-gradient(circle at 50% 42%, #000 35%, transparent 82%);
+  pointer-events: none;
+}
+
+.acharya-card-graphic svg {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  max-height: 220px;
+  transition: transform 300ms ease-out;
+}
+
+article:hover .acharya-card-graphic svg {
+  transform: translateY(-3px) scale(1.015);
+}
+
+/* Tool & Standard Chip Grid in Section 2 */
+.acharya-spec-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.acharya-spec-chip-code {
+  font-family: var(--font-paper-mono), var(--font-geist-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+}
+
+.acharya-spec-chip-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--color-text-main);
+}
+
+/* Continuous Marquee Strip */
+.acharya-marquee-wrap {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.acharya-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  animation: acharya-marquee 34s linear infinite;
+  will-change: transform;
+}
+
+.acharya-marquee-wrap:hover .acharya-marquee-track,
+.acharya-marquee-wrap:focus-within .acharya-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes acharya-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Carousel Layout & Scrollbars */
+[blossom-carousel="true"] {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+[blossom-carousel="true"]::-webkit-scrollbar {
+  display: none;
+}
+
+/* Section 4 Featured Story Cards — high-contrast dark engineering panels */
+.acharya-story-panel-1 {
+  background: linear-gradient(145deg, #16181d 0%, #232832 100%);
+}
+.acharya-story-panel-2 {
+  background: linear-gradient(145deg, #0d1b38 0%, #163063 100%);
+}
+.acharya-story-panel-3 {
+  background: linear-gradient(145deg, #0d2b22 0%, #124839 100%);
+}
+.acharya-story-panel-4 {
+  background: linear-gradient(145deg, #271b16 0%, #442c22 100%);
+}
+
+.acharya-story-media {
+  background-color: #0b0d10;
+}
+
+.acharya-story-media img,
+.acharya-story-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Section 5 Standards 4-column grid */
+.acharya-standards-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  border-top: 1px solid var(--color-border-line);
+}
+
+@media (min-width: 640px) {
+  .acharya-standards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .acharya-standards-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.acharya-standard-cell {
+  padding: 2rem 1.75rem;
+  border-bottom: 1px solid var(--color-border-line);
+}
+
+@media (min-width: 640px) {
+  .acharya-standard-cell {
+    border-right: 1px solid var(--color-border-line);
+  }
+  .acharya-standard-cell:nth-child(2n) {
+    border-right: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .acharya-standard-cell {
+    padding: 2.5rem 2rem;
+    border-bottom: none;
+    border-right: 1px solid var(--color-border-line);
+  }
+  .acharya-standard-cell:nth-child(2n) {
+    border-right: 1px solid var(--color-border-line);
+  }
+  .acharya-standard-cell:last-child {
+    border-right: none;
+  }
+}
+
+/* Section 7 Engineering Thesis & Principles Grid */
+.acharya-principle-card {
+  transition: opacity 280ms ease, transform 280ms ease, border-color 200ms ease;
+}
+
+.acharya-principle-card[data-active="true"] {
+  border-color: var(--color-brand);
+}
+
+/* Accordion state visibility (replaces Radix runtime) */
+[data-slot="accordion-item"][data-state="open"] [data-slot="accordion-content"] {
+  display: block;
+}
+
+[data-slot="accordion-item"][data-state="closed"] [data-slot="accordion-content"] {
+  display: none;
+}
+
+[data-slot="accordion-trigger"][aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+[data-slot="accordion-trigger"] svg {
+  transition: transform 200ms ease;
+}
+
+/* Mobile Navigation Drawer */
+.acharya-mobile-drawer {
+  position: fixed;
+  inset: 4rem 0 0 0;
+  z-index: 95;
+  background-color: var(--color-background-main);
+  border-top: 1px solid var(--color-border-line);
+  padding: 1.5rem 1.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+.acharya-mobile-drawer[hidden] {
+  display: none;
+}
+
+/* Accessible Project Detail Modal */
+.acharya-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.acharya-modal[hidden] {
+  display: none;
+}
+
+.acharya-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(4, 6, 8, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.acharya-modal-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border-soft);
+  background-color: var(--acharya-modal-bg);
+  color: var(--color-text-main);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+}
+
+.acharya-modal-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #0b0d10;
+  border-bottom: 1px solid var(--color-border-line);
+  overflow: hidden;
+}
+
+.acharya-modal-media img,
+.acharya-modal-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.acharya-spec-list {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .acharya-spec-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.acharya-spec-item {
+  border: 1px solid var(--color-border-line);
+  border-radius: 0.375rem;
+  padding: 0.625rem 0.75rem;
+  background-color: var(--color-background-soft);
+}
+
+.acharya-spec-label {
+  display: block;
+  font-family: var(--font-paper-mono), var(--font-geist-mono), monospace;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-sub);
+  margin-bottom: 0.25rem;
+}
+
+.acharya-spec-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+}
+
+/* CTA Inputs Strip */
+.acharya-accepted-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.acharya-input-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border: 1px solid var(--color-border-sub);
+  background-color: var(--color-background-soft);
+  border-radius: 0.25rem;
+  padding: 0.3125rem 0.625rem;
+  font-family: var(--font-paper-mono), var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+  color: var(--color-text-soft);
+}
+
+/* Ensure header theme button icons match active state cleanly */
+.acharya-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-border-sub);
+  background-color: var(--color-background-main);
+  color: var(--color-text-main);
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.acharya-theme-toggle:hover {
+  background-color: var(--color-background-soft);
+}
+
+/* Reduced motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  .acharya-marquee-track {
+    animation: none;
+  }
+  [blossom-carousel="true"] {
+    scroll-behavior: auto;
+  }
+  article:hover .acharya-card-graphic svg {
+    transform: none;
+  }
+  .acharya-footer-dither {
+    transition: none;
+    opacity: 1;
+  }
+  .acharya-footer-link::after {
+    transition: none;
+  }
+  .draw-datum-pulse.is-pulsing {
+    animation: none;
+  }
+}
+
+/* Hero Badge Odometer & Inline Split Plummer Block SVG */
+.acharya-odometer-reel {
+  transition-property: transform;
+  transition-duration: 700ms;
+  transition-timing-function: var(--ease-out-soft);
+  will-change: transform;
+}
+
+.acharya-plummer-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.acharya-plummer-svg .draw-outline {
+  stroke: var(--color-text-main);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.acharya-plummer-svg .draw-outline-thin {
+  stroke: var(--color-text-sub);
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.acharya-plummer-svg .draw-centerline {
+  stroke: var(--color-brand);
+  stroke-opacity: 0.7;
+  stroke-width: 1.1;
+}
+
+.acharya-plummer-svg .draw-dimension {
+  stroke: var(--color-text-sub);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.acharya-plummer-svg.is-drawn-static .draw-outline,
+.acharya-plummer-svg.is-drawn-static .draw-centerline,
+.acharya-plummer-svg.is-drawn-static .draw-dimension {
+  stroke-dashoffset: 0 !important;
+}
+
+.acharya-plummer-svg.is-drawn-static .draw-centerline {
+  stroke-dasharray: 16 5 3 5 !important;
+}
+
+.acharya-plummer-svg.is-drawn-static .draw-gdt {
+  opacity: 1 !important;
+}
+
+@keyframes acharya-datum-breathe {
+  0%, 100% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.06);
+  }
+}
+
+.draw-datum-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.draw-datum-pulse.is-pulsing {
+  animation: acharya-datum-breathe 4s ease-in-out infinite;
+}
+
+/* Footer Dither Fade-in & Sliding Link Underline */
+.acharya-footer-dither {
+  opacity: 0;
+  transition: opacity 600ms var(--ease-out-soft);
+}
+
+.acharya-footer-dither.is-visible {
+  opacity: 1;
+}
+
+.acharya-footer-link {
+  position: relative;
+  display: inline-block;
+  transition: color 200ms ease;
+}
+
+.acharya-footer-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-brand);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 200ms var(--ease-out-soft);
+}
+
+.acharya-footer-link:hover::after,
+.acharya-footer-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Sticky Navbar Glassmorphism */
+.acharya-glass-nav {
+  background-color: rgba(255, 255, 255, 0.74) !important;
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: inset 0 -1px 0 rgba(8, 9, 10, 0.04);
+}
+
+.dark .acharya-glass-nav {
+  background-color: rgba(8, 9, 10, 0.74) !important;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Oversized Cropped Footer Watermark (Mobbin-style) */
+.acharya-footer-watermark {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  padding-top: 0.75rem;
+  border-top: 1px solid transparent;
+}
+
+.acharya-footer-watermark-text {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.8rem, 12.6vw, 12.8rem);
+  line-height: 0.76;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+  color: rgba(8, 9, 10, 0.065);
+  transform: translateY(18%);
+}
+
+.dark .acharya-footer-watermark-text {
+  color: rgba(255, 255, 255, 0.075);
+}
+
+/* Section 6 CAD Archive Media & Workproof Gallery */
+.acharya-archive-media {
+  background-color: #0e1014;
+}
+
+.acharya-archive-media img,
+.acharya-archive-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.acharya-workproof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .acharya-workproof-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .acharya-workproof-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.acharya-workproof-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border-sub);
+  background-color: var(--color-background-soft);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 180ms ease, transform 200ms ease;
+}
+
+.acharya-workproof-card:hover {
+  border-color: var(--color-brand);
+}
+
+.acharya-workproof-thumb {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+  background-color: #0b0d10;
+}
+
+.acharya-workproof-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 350ms ease;
+}
+
+.acharya-workproof-card:hover .acharya-workproof-thumb img {
+  transform: scale(1.03);
+}
+
+.acharya-modal-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem 0;
+}
+
+.acharya-modal-thumb-btn {
+  width: 72px;
+  height: 46px;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border-sub);
+  background-color: #0b0d10;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.65;
+  transition: opacity 150ms ease, border-color 150ms ease;
+}
+
+.acharya-modal-thumb-btn[aria-current="true"],
+.acharya-modal-thumb-btn:hover {
+  opacity: 1;
+  border-color: var(--color-brand);
+}
+
+.acharya-modal-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

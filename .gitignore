@@ -1,0 +1,74 @@
+# Dependencies & package managers
+node_modules/
+.pnp
+.pnp.js
+.yarn/
+
+# Confidential data, credentials & environment files
+.env
+.env.*
+*.env
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+*.token
+credentials.json
+token.json
+auth.json
+*.secret
+secrets.*
+
+# OS generated files & metadata
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# IDE, editor & AI agent configurations
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.sublime-workspace
+*.sublime-project
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.antigravity*
+.gemini*
+.claude*
+.cursor*
+
+# Logs & debugging
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build, cache & temporary files
+.cache/
+.temp/
+tmp/
+temp/
+*.tmp
+*.bak
+dist/
+build/
+.next/
+out/

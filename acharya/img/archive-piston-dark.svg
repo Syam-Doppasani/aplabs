@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 400" fill="none">
+  <defs>
+    <pattern id="g-piston" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255,255,255,0.045)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="350" height="400" fill="#0e1014"/>
+  <rect width="350" height="400" fill="url(#g-piston)"/>
+  <rect x="16" y="16" width="318" height="368" rx="6" fill="#14171d" fill-opacity="0.78" stroke="#7b8490" stroke-opacity="0.28"/>
+  <text x="30" y="42" font-family="monospace" font-size="11" fill="#18e299">PRJ-06 · POWERTRAIN</text>
+  <text x="30" y="58" font-family="monospace" font-size="10" fill="#7b8490">SOLIDWORKS AEROSPACE</text>
+  <line x1="28" y1="68" x2="322" y2="68" stroke="#7b8490" stroke-opacity="0.2"/>
+  
+  <g transform="translate(175, 206)">
+    <line x1="0" y1="-100" x2="0" y2="105" stroke="#18e299" stroke-opacity="0.5" stroke-dasharray="10 4 2 4"/>
+    <rect x="-72" y="-70" width="144" height="148" rx="4" fill="#eb9411" fill-opacity="0.07" stroke="#f2f4f7" stroke-width="2"/>
+    <line x1="-72" y1="-44" x2="72" y2="-44" stroke="#f2f4f7" stroke-width="1.5"/>
+    <line x1="-72" y1="-34" x2="72" y2="-34" stroke="#f2f4f7" stroke-width="1.5"/>
+    <line x1="-72" y1="-22" x2="72" y2="-22" stroke="#f2f4f7" stroke-width="1.5"/>
+    <line x1="-72" y1="-12" x2="72" y2="-12" stroke="#f2f4f7" stroke-width="1.5"/>
+    <line x1="-72" y1="2" x2="72" y2="2" stroke="#44aeff" stroke-width="1.5"/>
+    <circle cx="0" cy="40" r="22" stroke="#18e299" stroke-width="1.8" fill="#0e1014"/>
+    <circle cx="0" cy="40" r="14" stroke="#f2f4f7" stroke-width="1.2"/>
+    <text x="-48" y="-82" font-family="monospace" font-size="11" fill="#eb9411">Ø84.00 mm BORE</text>
+    <text x="-54" y="96" font-family="monospace" font-size="10" fill="#18e299">PIN Ø22 (+0.005/-0)</text>
+  </g>
+  <line x1="28" y1="344" x2="322" y2="344" stroke="#7b8490" stroke-opacity="0.2"/>
+  <text x="30" y="366" font-family="monospace" font-size="10" fill="#7b8490">ACHARYA N CO · SPEC ARCHIVE</text>
+</svg>
